@@ -55,13 +55,6 @@ func TestSkuValidate(t *testing.T) {
 			inv:   1,
 			want:  entity.ErrInvalidEntity,
 		},
-		{
-			sku:   "a",
-			name:  "a",
-			price: 1.0,
-			inv:   0,
-			want:  entity.ErrInvalidEntity,
-		},
 	}
 
 	for _, tc := range tests {

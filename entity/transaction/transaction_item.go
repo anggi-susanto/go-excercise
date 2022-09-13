@@ -12,16 +12,18 @@ type TransactionItem struct {
 	SkuID         uint32
 	BasePrice     float64
 	Discount      *float64
+	Qty           int
 	CreatedDate   time.Time
 	UpdatedDate   *time.Time
 }
 
-func NewTransactionItem(transactionID uint32, skuID uint32, basePrice float64, discount float64) (*TransactionItem, error) {
+func NewTransactionItem(transactionID uint32, skuID uint32, basePrice float64, discount float64, qty int) (*TransactionItem, error) {
 	t := &TransactionItem{
 		TransactionID: transactionID,
 		SkuID:         skuID,
 		BasePrice:     basePrice,
 		Discount:      &discount,
+		Qty:           qty,
 		CreatedDate:   time.Now(),
 	}
 
@@ -35,7 +37,7 @@ func NewTransactionItem(transactionID uint32, skuID uint32, basePrice float64, d
 }
 
 func (t *TransactionItem) Validate() error {
-	if t.TransactionID < 1 || t.SkuID < 1 || t.BasePrice < 1 {
+	if t.TransactionID < 1 || t.SkuID < 1 || t.BasePrice < 1 || t.Qty < 1 {
 		return entity.ErrInvalidEntity
 	}
 

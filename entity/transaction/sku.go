@@ -27,7 +27,7 @@ func NewSku(sku string, name string, price float64, inventoryQty int) (*Sku, err
 	return s, nil
 }
 func (s *Sku) Validate() error {
-	if s.SKU == "" || s.Name == "" || s.Price < float64(1) || s.InventoryQty < 1 {
+	if s.SKU == "" || s.Name == "" || s.Price < float64(1) {
 		return entity.ErrInvalidEntity
 	}
 
