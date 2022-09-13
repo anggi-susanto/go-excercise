@@ -41,7 +41,7 @@ api-docs:
 	~/go/bin/swag init -g cmd/serverest/cmd_serve.go
 
 unit-test:
-	set -a && . ./.env && go test -race -v -coverprofile=profile.out ./... $(shell echo $(TEST_FLAGS)) && go tool cover -html=cover.out ; rm -f cover.out
+	set -a && . ./.env && go test -race -v -coverprofile=cover.out ./... $(shell echo $(TEST_FLAGS)) && go tool cover -html=cover.out ; rm -f cover.out
 
 coverage:
 	@go test -covermode=count -coverprofile=count.out fmt; rm -f count.out
